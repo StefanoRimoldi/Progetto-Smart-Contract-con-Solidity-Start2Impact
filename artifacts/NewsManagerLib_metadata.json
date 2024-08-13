@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.7.0+commit.9e61f92b"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"NewsManagerLib.sol": "NewsManagerLib"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"NewsManagerLib.sol": {
+			"keccak256": "0xad468b35de8e9227cca69ccca398334d4ad60e5116cec6597837c579dd0832a1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e86cd0672a8b1a6daf53b19d728c2cab2e3c6930ec19b4d776d84709b4961518",
+				"dweb:/ipfs/QmQ6nGshAXFdwUr99MCJw9j1wKvGbPHspnxFguBA6fVvZp"
+			]
+		}
+	},
+	"version": 1
+}
