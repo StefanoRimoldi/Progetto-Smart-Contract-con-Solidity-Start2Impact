@@ -1,4 +1,4 @@
-# Progetto Smartcontract con Soldity - Information
+# Progetto Smartcontract con Solidity - Information
 <a name="readme-top"></a>
 
 ## Introduzione
