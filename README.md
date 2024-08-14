@@ -58,7 +58,13 @@ Tutte le operazioni che richiedono una modifica dello stato del contratto (come 
 
 ## Repository GitHub
 
-- Repo GitHub: https://github.com/StefanoRimoldi/Progetto-Javascript-Basics
+- Repo GitHub: https://github.com/StefanoRimoldi/Smartcontract-con-Solidity-Start2Impact.git
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Contatti
+- Email: rimoldistefano@gmail.com
+- Linkedin: www.linkedin.com/in/stefano-rimoldi
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
