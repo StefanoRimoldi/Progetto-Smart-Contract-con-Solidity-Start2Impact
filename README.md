@@ -7,13 +7,21 @@ Utilizza due contratti: NewsManager.sol e NewsManagerLib.sol, distribuiti su una
 
 ## Sommario
 
-
-- [Prerequisiti](#prerequisiti)
+- [Installazione](#installazione)
+  - [Prerequisiti](#prerequisiti)
   - [Link utili](#link-utili)
   - [Web3.js](#web3js)
   - [Ether.js](#ethersjs)
+- [Deploy su blockchain](#deploy-su-blockchain)
 - [Repository GitHub](#repository-github)
 - [Contatti](#contatti)
+
+## Installazione
+
+Qui di seguito i passaggi per configurare e avviare il progetto localmente come:
+1. Includere il download del repository.
+2. Installazione delle dipendenze.
+3. Configurazione.
 
 ## Prerequisiti
 
@@ -30,7 +38,9 @@ Web3.js e Ether.js sono due dei principali strumenti per interagire con Ethereum
   Estensione del browser [Metamask](https://metamask.io/)
 - **Web3.js**  
   Libreria Web3 installata tramite `npm install web3`
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Installazione delle dipendenze
 ### Web3.js
 
 Installa `web3.js` utilizzando npm:
@@ -38,7 +48,7 @@ Installa `web3.js` utilizzando npm:
 npm install web3
 ```
 
-### Configurazione
+### Configurazione con index.js
 
 Crea un file `index.js` con il seguente codice per configurare l'accesso al tuo contratto su blockchain:
 
@@ -59,7 +69,6 @@ async function getNewsDetails(newsAddress) {
 
 getNewsDetails('0x...'); // Inserisci l'indirizzo della notizia
 ```
-
 ### Ethers.js
 In alternativa a Web3.js, puoi utilizzare Ethers.js per interagire con gli smart contract:
 ```bash
@@ -85,7 +94,7 @@ async function getNewsDetails(newsAddress) {
     }
 }
 
-getNewsDetails('0x...'); // Inserisci l'indirizzo della notizia
+getNewsDetails('0x...'); // Inserisci l'indirizzo della notizia //
 ```
 
 
@@ -98,6 +107,17 @@ Questo script eseguirà la funzione per ottenere i dettagli di una specifica not
 
 Tutte le operazioni che richiedono una modifica dello stato del contratto (come l'aggiunta di validatori o l'invio di notizie) richiederanno la firma della transazione da parte di Metamask o un altro wallet compatibile. Verranno generati i dettagli della transazione, inclusi i costi di gas.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Deploy su blockchain
+Per distribuire il contratto su una rete blockchain, segui questi passaggi:
+```bash
+1. Apri Remix IDE e carica i tuoi file `.sol`.
+2. Seleziona `Injected Web3` e collega Metamask.
+3. Compila e distribuisci il contratto su una rete come Sepolia.
+4. Verifica la transazione e il contratto su [Etherscan](https://etherscan.io).
+```
+
+
 
 ## Repository GitHub
 
