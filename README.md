@@ -6,7 +6,8 @@ Questo progetto implementa una piattaforma decentralizzata per la gestione e la 
 Utilizza due contratti: NewsManager.sol e NewsManagerLib.sol, distribuiti su una rete di test Ethereum.
 
 ## Sommario
-
+- [Vantaggi della piattaforma](#vantaggi-della-piattaforma)
+- [Funzionalità principali](#funzionalità-principali)
 - [Installazione](#installazione)
   - [Prerequisiti](#prerequisiti)
   - [Link utili](#link-utili)
@@ -15,6 +16,17 @@ Utilizza due contratti: NewsManager.sol e NewsManagerLib.sol, distribuiti su una
 - [Deploy su blockchain](#deploy-su-blockchain)
 - [Repository GitHub](#repository-github)
 - [Contatti](#contatti)
+
+
+## Vantaggi della piattaforma
+Grazie agli smart contracts garantiamo trasparenza, sicurezza e incentivazione dei validatori per confermare l'affidabilità delle informazioni.
+Le operazioni sono automatizzate e tracciate, riducendo il rischio di manipolazioni e frodi, offrendo un sistema affidabile per la distribuzione e verifica delle notizie in maniera decentralizzata. Ideale per aziende che gestiscono contenuti sensibili, il sistema incentiva la qualità e la fiducia nell'informazione.
+
+## Funzionalità principali
+La piattaforma offre funzionalità avanzate per la gestione delle notizie e dei validatori. 
+Gli amministratori possono aggiungere nuove notizie con parametri specifici come il nome, la data di scadenza e il numero minimo di validazioni richieste. 
+Inoltre, possono gestire i validatori, aggiungendo nuovi membri, impostando ricompense e rimuovendo quelli non più necessari. 
+Il sistema permette di monitorare lo stato delle notizie, verificando se sono state validate o se sono ancora in attesa di conferma.
 
 ## Installazione
 
