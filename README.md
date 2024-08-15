@@ -15,6 +15,7 @@ Utilizza due contratti: NewsManager.sol e NewsManagerLib.sol, distribuiti su una
   - [Ether.js](#ethersjs)
 - [Deploy su blockchain](#deploy-su-blockchain)
 - [Repository GitHub](#repository-github)
+- [Indirizzi Contratto](#indirizzi-contratto)
 - [Contatti](#contatti)
 
 
@@ -135,6 +136,13 @@ Per distribuire il contratto su una rete blockchain, segui questi passaggi:
 
 - Repo GitHub: https://github.com/StefanoRimoldi/Smartcontract-con-Solidity-Start2Impact.git
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Indirizzi Contratto
+NewsManager.sol
+0x2f5d29d080ed8bd2bee3d286d09233b59a48432b
+
+NewsManagerLib.sol
+0x6a695f7791e15c56cf203556d70a957345cdd69b
 
 ## Contatti
 - Email: rimoldistefano@gmail.com
