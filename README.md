@@ -138,6 +138,8 @@ Per distribuire il contratto su una rete blockchain, segui questi passaggi:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Indirizzi Contratto
+Indirizzi del contratto e della libreria pubblicati su rete di test Sepolia
+
 NewsManager.sol
 0x2f5d29d080ed8bd2bee3d286d09233b59a48432b
 
