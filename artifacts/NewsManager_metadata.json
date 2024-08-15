@@ -1,0 +1,511 @@
+{
+	"compiler": {
+		"version": "0.7.0+commit.9e61f92b"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "FundsDeposited",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newsAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "expirationDate",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "minValidations",
+						"type": "uint256"
+					}
+				],
+				"name": "NewsAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "validator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "RewardDistributed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "validator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newsAddress",
+						"type": "address"
+					}
+				],
+				"name": "ValidationConfirmed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "validator",
+						"type": "address"
+					}
+				],
+				"name": "ValidatorAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "validator",
+						"type": "address"
+					}
+				],
+				"name": "ValidatorRemoved",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_newsAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_expirationDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_minValidations",
+						"type": "uint256"
+					}
+				],
+				"name": "addNews",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_validator",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_rewardAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "addValidator",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "admin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_newsAddress",
+						"type": "address"
+					}
+				],
+				"name": "checkIfNewsIsValidated",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_validator",
+						"type": "address"
+					}
+				],
+				"name": "checkIfValidatorIsRegistered",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_newsAddress",
+						"type": "address"
+					}
+				],
+				"name": "confirmValidation",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contractBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "depositFunds",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_newsAddress",
+						"type": "address"
+					}
+				],
+				"name": "getNewsDetails",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "newsAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expirationDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minValidations",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "validationCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isValidated",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getValidatorCountFromLib",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getValidatorList",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "newsList",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "newsAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expirationDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minValidations",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "validationCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isValidated",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_validator",
+						"type": "address"
+					}
+				],
+				"name": "removeValidator",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalRewardAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "validatorCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "validatorList",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "validatorRewards",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "validators",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Smartcontract-con-Solidity-Start2Impact/NewsManager.sol": "NewsManager"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Smartcontract-con-Solidity-Start2Impact/NewsManager.sol": {
+			"keccak256": "0xbcfb61bc819b1e7bf1acf67e632eaa1a553f514344db1c3188ce9436ddd81b0b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://227772253235435a679c68939b100e830eaaaa3f17401cdca0058d7f33ad1355",
+				"dweb:/ipfs/QmdxmAHKiWHiHiY3e5jTEzzgJbDkZUaqgGnG5nVXp2kkpd"
+			]
+		},
+		"Smartcontract-con-Solidity-Start2Impact/NewsManagerLib.sol": {
+			"keccak256": "0xad468b35de8e9227cca69ccca398334d4ad60e5116cec6597837c579dd0832a1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e86cd0672a8b1a6daf53b19d728c2cab2e3c6930ec19b4d776d84709b4961518",
+				"dweb:/ipfs/QmQ6nGshAXFdwUr99MCJw9j1wKvGbPHspnxFguBA6fVvZp"
+			]
+		}
+	},
+	"version": 1
+}
