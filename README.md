@@ -125,8 +125,8 @@ Per distribuire il contratto su una rete blockchain, segui questi passaggi:
 ```bash
 1. Apri Remix IDE e carica i tuoi file `.sol`.
 2. Seleziona `Injected Web3` e collega Metamask.
-3. Compila e distribuisci il contratto su una rete come Sepolia.
-4. Verifica la transazione e il contratto su [Etherscan](https://etherscan.io).
+3. Compila e distribuisci il contratto su una rete di test come Sepolia.
+4. Verifica la transazione e il contratto su Etherscan(https://etherscan.io).
 ```
 
 
