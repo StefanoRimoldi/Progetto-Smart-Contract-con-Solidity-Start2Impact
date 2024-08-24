@@ -141,10 +141,10 @@ Per distribuire il contratto su una rete blockchain, segui questi passaggi:
 Indirizzi del contratto e della libreria pubblicati su rete di test Sepolia
 
 NewsManager.sol
-0x2f5d29d080ed8bd2bee3d286d09233b59a48432b
+0x01f48A31ED374Fc2563BB68fC2916D40cead6A08
 
 NewsManagerLib.sol
-0x6a695f7791e15c56cf203556d70a957345cdd69b
+0xf0a27cac62C38d96807769B4C76a614080Ce1C87
 
 ## Contatti
 - Email: rimoldistefano@gmail.com
