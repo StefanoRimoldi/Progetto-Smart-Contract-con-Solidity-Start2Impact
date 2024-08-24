@@ -1,19 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.7.0;
 
-import "./NewsManagerLib.sol"; // Importa la libreria NewsManagerLib
+import "./NewsManagerLib.sol";
 
 contract NewsManager {
-    using NewsManagerLib for uint256;
-    using NewsManagerLib for mapping(address => bool);
-    using NewsManagerLib for address[];
-    
     address public admin;
     mapping(address => bool) public validators;
     mapping(address => uint256) public validatorRewards;
     uint256 public totalRewardAmount;
     uint256 public contractBalance;
     uint256 public validatorCount;
+
     address[] public validatorList;
 
     struct News {
@@ -26,6 +23,8 @@ contract NewsManager {
     }
 
     mapping(address => News) public newsList;
+    mapping(address => mapping(address => bool)) public newsValidatedBy;
+    
 
     event ValidatorAdded(address indexed validator);
     event ValidatorRemoved(address indexed validator);
@@ -94,24 +93,30 @@ contract NewsManager {
     }
 
     function confirmValidation(address _newsAddress) external onlyValidator {
-        News storage news = newsList[_newsAddress];
-        require(news.expirationDate > block.timestamp, "Validation period has expired.");
-        require(!news.isValidated, "News has already been validated.");
-        
-        news.validationCount += 1;
+    News storage news = newsList[_newsAddress];
+    require(news.expirationDate > block.timestamp, "Validation period has expired.");
+    require(!news.isValidated, "News has already been validated.");
+    require(!newsValidatedBy[_newsAddress][msg.sender], "Validator has already confirmed this news.");
+    
 
-        if (news.validationCount.isNewsValidatedByMinValidators(news.minValidations)) {
-            news.isValidated = true;
-            uint256 rewardAmount = validatorRewards[msg.sender];
-            require(contractBalance >= rewardAmount, "Insufficient contract balance.");
+    news.validationCount += 1;
+    newsValidatedBy[_newsAddress][msg.sender] = true;
 
-            payable(msg.sender).transfer(rewardAmount);
-            contractBalance -= rewardAmount;
+    // Distribuisce la ricompensa per ogni validatore subito dopo la conferma
+    uint256 rewardAmount = validatorRewards[msg.sender];
+    require(contractBalance >= rewardAmount, "Contract does not have enough balance for rewards.");
+    
+    payable(msg.sender).transfer(rewardAmount);
+    contractBalance -= rewardAmount;
+    emit RewardDistributed(msg.sender, rewardAmount);
 
-            emit ValidationConfirmed(msg.sender, _newsAddress);
-            emit RewardDistributed(msg.sender, rewardAmount);
-        }
+    // Controlla se la notizia ha raggiunto il numero minimo di validazioni
+    if (NewsManagerLib.isNewsValidatedByMinValidators(news)) {
+        news.isValidated = true;
+        emit ValidationConfirmed(msg.sender, _newsAddress);
     }
+}
+
 
     function depositFunds() external payable onlyAdmin {
         contractBalance += msg.value;
@@ -123,35 +128,18 @@ contract NewsManager {
         emit FundsDeposited(msg.value);
     }
 
-    // verifica notizia se validata dal numero minimo di validator con libreria
-    function checkIfNewsIsValidated(address _newsAddress) external view returns (bool) {
-        News storage news = newsList[_newsAddress];
-        return news.validationCount.isNewsValidatedByMinValidators(news.minValidations); 
-    }
-
-    // verifica se un indirizzo è un validator registrato con libreria
-    function checkIfValidatorIsRegistered(address _validator) external view returns (bool) {
-        return validators.isValidatorRegistered(_validator); 
-    }
-
-    // ottiene il numero di validatori registrati con libreria
-    function getValidatorCountFromLib() external view returns (uint256) {
-        return validatorList.getValidatorCount();
-    }
-
-    function getNewsDetails(address _newsAddress) external view returns (
-        address newsAddress,
-        string memory name,
-        uint256 expirationDate,
-        uint256 minValidations,
-        uint256 validationCount,
-        bool isValidated
-    ) {
-        News storage news = newsList[_newsAddress];
-        return (news.newsAddress, news.name, news.expirationDate, news.minValidations, news.validationCount, news.isValidated);
+    function getValidatorCount() external view returns (uint256) {
+        return NewsManagerLib.getValidatorCount(validatorList);
     }
 
     function getValidatorList() external view returns (address[] memory) {
         return validatorList;
+    }
+
+    function getNewsDetails(address _newsAddress) external view returns (
+        address, string memory, uint256, uint256, uint256, bool
+    ) {
+        News storage news = newsList[_newsAddress];
+        return (news.newsAddress, news.name, news.expirationDate, news.minValidations, news.validationCount, news.isValidated);
     }
 }
